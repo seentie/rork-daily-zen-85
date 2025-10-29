@@ -34,37 +34,42 @@ export default function HomeScreen() {
   const monthDay = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 
   useEffect(() => {
-    // Glow animation
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(glowAnim, {
-          toValue: 1,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-        Animated.timing(glowAnim, {
-          toValue: 0,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-      ])
-    ).start();
+    console.log('[HomeScreen] Initializing animations on', Platform.OS);
+    try {
+      // Glow animation
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(glowAnim, {
+            toValue: 1,
+            duration: 2000,
+            useNativeDriver: false,
+          }),
+          Animated.timing(glowAnim, {
+            toValue: 0,
+            duration: 2000,
+            useNativeDriver: false,
+          }),
+        ])
+      ).start();
 
-    // Float animation
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(floatAnim, {
-          toValue: -10,
-          duration: 3000,
-          useNativeDriver: true,
-        }),
-        Animated.timing(floatAnim, {
-          toValue: 0,
-          duration: 3000,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
+      // Float animation
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(floatAnim, {
+            toValue: -10,
+            duration: 3000,
+            useNativeDriver: true,
+          }),
+          Animated.timing(floatAnim, {
+            toValue: 0,
+            duration: 3000,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    } catch (error) {
+      console.log('[HomeScreen] Animation error:', error);
+    }
   }, []);
 
   const glowOpacity = glowAnim.interpolate({
@@ -73,6 +78,7 @@ export default function HomeScreen() {
   });
 
   const handleIntentionSelect = (intention: string) => {
+    console.log('[HomeScreen] Intention selected:', intention);
     setSelectedIntention(intention);
     setShowIntentions(false);
   };

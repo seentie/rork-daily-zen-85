@@ -68,10 +68,12 @@ const TIMER_OPTIONS = [
 ];
 
 export default function BreatheScreen() {
-  const [selectedTime, setSelectedTime] = useState(180); // Default 3 minutes
+  const [selectedTime, setSelectedTime] = useState(180);
   const [timeRemaining, setTimeRemaining] = useState(180);
   const [isActive, setIsActive] = useState(false);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'hold' | 'exhale' | 'hold2'>('inhale');
+
+  console.log('[BreatheScreen] Render - Platform:', Platform.OS);
   
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const breathIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -192,33 +194,53 @@ export default function BreatheScreen() {
   };
 
   const handleStart = () => {
+    console.log('[BreatheScreen] Starting timer');
     setIsActive(true);
     if (Platform.OS !== 'web') {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      try {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      } catch (error) {
+        console.log('[BreatheScreen] Haptics error:', error);
+      }
     }
   };
 
   const handlePause = () => {
+    console.log('[BreatheScreen] Pausing timer');
     setIsActive(false);
     if (Platform.OS !== 'web') {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      try {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      } catch (error) {
+        console.log('[BreatheScreen] Haptics error:', error);
+      }
     }
   };
 
   const handleReset = () => {
+    console.log('[BreatheScreen] Resetting timer');
     setIsActive(false);
     setTimeRemaining(selectedTime);
     if (Platform.OS !== 'web') {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      try {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      } catch (error) {
+        console.log('[BreatheScreen] Haptics error:', error);
+      }
     }
   };
 
   const handleTimeSelect = (seconds: number) => {
+    console.log('[BreatheScreen] Time selected:', seconds);
     setSelectedTime(seconds);
     setTimeRemaining(seconds);
     setIsActive(false);
     if (Platform.OS !== 'web') {
-      Haptics.selectionAsync();
+      try {
+        Haptics.selectionAsync();
+      } catch (error) {
+        console.log('[BreatheScreen] Haptics error:', error);
+      }
     }
   };
 
@@ -653,7 +675,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
     textAlign: 'center',
-    includeFontPadding: false,
+    ...(Platform.OS === 'android' ? { includeFontPadding: false } : {}),
   },
   timeSelection: {
     flexDirection: 'row',

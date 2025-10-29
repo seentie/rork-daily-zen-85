@@ -1,6 +1,7 @@
 import createContextHook from '@nkzw/create-context-hook';
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Platform } from 'react-native';
 
 interface ZenState {
   selectedIntention: string | null;
@@ -34,7 +35,10 @@ export const [ZenProvider, useZen] = createContextHook<ZenState>(() => {
           }
         }
       } catch (error) {
-        console.error('Error loading zen state:', error);
+        console.log('[ZenContext] Error loading zen state:', error);
+        if (Platform.OS === 'android') {
+          console.log('[ZenContext] Android-specific AsyncStorage error detected');
+        }
       } finally {
         setIsLoading(false);
       }
@@ -50,15 +54,17 @@ export const [ZenProvider, useZen] = createContextHook<ZenState>(() => {
     setLastIntentionDate(today);
 
     try {
-      await AsyncStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          selectedIntention: intention,
-          lastIntentionDate: today,
-        })
-      );
+      const stateToSave = JSON.stringify({
+        selectedIntention: intention,
+        lastIntentionDate: today,
+      });
+      await AsyncStorage.setItem(STORAGE_KEY, stateToSave);
+      console.log('[ZenContext] State saved successfully');
     } catch (error) {
-      console.error('Error saving zen state:', error);
+      console.log('[ZenContext] Error saving zen state:', error);
+      if (Platform.OS === 'android') {
+        console.log('[ZenContext] Android-specific AsyncStorage save error');
+      }
     }
   };
 

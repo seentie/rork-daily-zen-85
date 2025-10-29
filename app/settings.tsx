@@ -23,8 +23,13 @@ const DEVELOPER_PHONE = '(646)-540-9602';
 
 export default function SettingsScreen() {
   const handleEmailSupport = async () => {
+    console.log('[Settings] Opening email support');
     if (Platform.OS !== 'web') {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      try {
+        await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      } catch (error) {
+        console.log('[Settings] Haptics error:', error);
+      }
     }
     
     const subject = encodeURIComponent('Daily Zen - Support Request');
@@ -52,8 +57,13 @@ Please describe your issue or feedback:
   };
 
   const handleOpenWebsite = async () => {
+    console.log('[Settings] Opening website');
     if (Platform.OS !== 'web') {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      try {
+        await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      } catch (error) {
+        console.log('[Settings] Haptics error:', error);
+      }
     }
     
     try {
@@ -69,8 +79,13 @@ Please describe your issue or feedback:
 
 
   const handleClose = async () => {
+    console.log('[Settings] Closing settings');
     if (Platform.OS !== 'web') {
-      await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      try {
+        await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      } catch (error) {
+        console.log('[Settings] Haptics error:', error);
+      }
     }
     router.back();
   };
