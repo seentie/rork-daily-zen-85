@@ -16,6 +16,7 @@ import * as Haptics from 'expo-haptics';
 
 const APP_VERSION = '1.0';
 const SUPPORT_EMAIL = 'sarah@oldskoolapps.com';
+const POLICY_UPDATED = 'November 2025';
 const DEVELOPER_NAME = 'OLD SKOOL APPS';
 const DEVELOPER_WEBSITE = 'https://www.oldskoolapps.com';
 const DEVELOPER_ADDRESS = '2114 N Flamingo Road #867, Pembroke Pines, FL 33028';
@@ -203,17 +204,17 @@ Please describe your issue or feedback:
             <SettingItem
               icon={<Shield size={24} color="#00ffff" />}
               title="Privacy Overview"
-              description="OLD SKOOL APPS respects your privacy. We collect minimal information to provide and improve our app services."
+              description="We don't track you. We don't collect your data. We don't sell anything to anyone. You do you."
             />
             <SettingItem
               icon={<Info size={24} color="#ff00ff" />}
-              title="Data Collection"
-              description="We collect account information, usage data, and device information to enhance your experience."
+              title="Local Storage"
+              description="All data stays on your device. Not our servers. Not the cloud. Just your device."
             />
             <SettingItem
               icon={<Heart size={24} color="#ffff00" />}
-              title="Your Rights"
-              description="You can access, correct, delete your data, and opt out of marketing communications."
+              title="Your Privacy"
+              description="Your business is your business. We're old skool about privacy too."
             />
           </SettingSection>
 
@@ -285,96 +286,71 @@ Please describe your issue or feedback:
             <View style={styles.legalText}>
               <Text style={styles.legalTitle}>Privacy Policy</Text>
               <Text style={styles.legalContent}>
-                (Last Updated: January 2025){'\n\n'}
-                OLD SKOOL APPS (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application.
+                Updated: {POLICY_UPDATED}{'\n\n'}
               </Text>
               
-              <Text style={styles.legalTitle}>Information We Collect</Text>
+              <Text style={styles.legalTitle}>The Short Version</Text>
               <Text style={styles.legalContent}>
-                Information You Provide:{'\n'}
-                • Account information (name, email address){'\n'}
-                • Profile information you choose to share{'\n'}
-                • Content you create or upload{'\n'}
-                • Communications with us{'\n\n'}
-                Information Automatically Collected:{'\n'}
-                • Device information (device type, operating system){'\n'}
-                • Usage data (how you interact with the app){'\n'}
-                • Log data (app crashes, performance metrics){'\n'}
-                • Location data (if you grant permission)
+                We don&apos;t track you. We don&apos;t collect your data. We don&apos;t sell anything to anyone. You do you.
               </Text>
 
-              <Text style={styles.legalTitle}>How We Use Your Information</Text>
+              <Text style={styles.legalTitle}>The Slightly Longer Version</Text>
               <Text style={styles.legalContent}>
-                We use your information to:{'\n'}
-                • Provide and improve our app services{'\n'}
-                • Create and maintain your account{'\n'}
-                • Send important updates and notifications{'\n'}
-                • Respond to your questions and support requests{'\n'}
-                • Analyze app usage to improve user experience{'\n'}
-                • Ensure app security and prevent fraud
+                Old Skool Apps believes your business is your business. Here&apos;s what that means:
               </Text>
 
-              <Text style={styles.legalTitle}>Information Sharing</Text>
+              <Text style={styles.legalTitle}>What We Don&apos;t Collect</Text>
               <Text style={styles.legalContent}>
-                We do not sell your personal information. We may share your information only in these situations:{'\n'}
-                • With your consent - When you explicitly agree{'\n'}
-                • Service providers - Third parties who help us operate the app{'\n'}
-                • Legal requirements - When required by law or to protect rights and safety{'\n'}
-                • Business transfers - If our company is sold or merged
+                • Personal information{'\n'}
+                • Usage data{'\n'}
+                • Location data{'\n'}
+                • Device information{'\n'}
+                • Cookies or tracking pixels{'\n'}
+                • Analytics{'\n'}
+                • Literally anything about you
               </Text>
 
-              <Text style={styles.legalTitle}>Data Security</Text>
+              <Text style={styles.legalTitle}>What We Don&apos;t Do</Text>
               <Text style={styles.legalContent}>
-                We implement appropriate security measures to protect your information, including:{'\n'}
-                • Encryption of sensitive data{'\n'}
-                • Secure data transmission{'\n'}
-                • Regular security assessments{'\n'}
-                • Limited access to personal information
+                • Track your activity{'\n'}
+                • Sell your data{'\n'}
+                • Share information with third parties{'\n'}
+                • Send you marketing emails (unless you explicitly sign up){'\n'}
+                • Connect to social media{'\n'}
+                • Use creepy ad networks
               </Text>
 
-              <Text style={styles.legalTitle}>Your Rights</Text>
+              <Text style={styles.legalTitle}>What Happens on Your Device Stays on Your Device</Text>
               <Text style={styles.legalContent}>
-                You have the right to:{'\n'}
-                • Access your personal information{'\n'}
-                • Correct inaccurate information{'\n'}
-                • Delete your account and data{'\n'}
-                • Opt out of marketing communications{'\n'}
-                • Request data portability (where applicable){'\n\n'}
-                To exercise these rights, contact us at www.oldskoolapps.com
-              </Text>
-
-              <Text style={styles.legalTitle}>Children&apos;s Privacy</Text>
-              <Text style={styles.legalContent}>
-                Our app is not intended for children under 13. We do not knowingly collect personal information from children under 13. If we discover we have collected such information, we will delete it promptly.
+                All our apps store data locally on your device. Your journals, lists, birthdays, contacts, preferences—everything lives on your phone or tablet. Not our servers. Not the cloud (unless you choose to back up via your device&apos;s built-in backup features).{'\n\n'}
+                If you delete the app, your data goes with it. We never see it in the first place.
               </Text>
 
               <Text style={styles.legalTitle}>Third-Party Services</Text>
               <Text style={styles.legalContent}>
-                Our app may contain links to third-party services or integrate with other platforms. This privacy policy does not apply to those services. Please review their privacy policies separately.
+                Some apps may use your device&apos;s built-in features (like photo library access or camera) but only when you give permission, and only to make the app work. We don&apos;t send that data anywhere.
               </Text>
 
               <Text style={styles.legalTitle}>Changes to This Policy</Text>
               <Text style={styles.legalContent}>
-                We may update this Privacy Policy from time to time. We will notify you of significant changes by:{'\n'}
-                • Posting the updated policy in the app{'\n'}
-                • Sending you an email notification{'\n'}
-                • Displaying a notice when you next open the app
+                If we ever change this policy (spoiler: we probably won&apos;t), we&apos;ll update this page and the date at the top. But our philosophy stays the same: your data is yours.
               </Text>
 
               <Text style={styles.legalTitle}>Medical Disclaimer</Text>
               <Text style={styles.legalContent}>
-                This app is designed for relaxation and mindfulness practice. It is not intended 
-                to diagnose, treat, cure, or prevent any medical condition. Please consult with 
-                healthcare professionals for medical advice.
+                This app is designed for relaxation and mindfulness practice. It is not intended to diagnose, treat, cure, or prevent any medical condition. Please consult with healthcare professionals for medical advice.
               </Text>
 
-              <Text style={styles.legalTitle}>Contact Us</Text>
+              <Text style={styles.legalTitle}>Questions?</Text>
               <Text style={styles.legalContent}>
                 If you have questions about this Privacy Policy or our privacy practices, please contact us at:{'\n\n'}
                 Email: {SUPPORT_EMAIL}{'\n'}
+                We&apos;re real humans who do respond.{'\n\n'}
                 Address: {DEVELOPER_ADDRESS}{'\n'}
                 Phone: {DEVELOPER_PHONE}{'\n\n'}
-                App version: {APP_VERSION}
+                We&apos;re old skool about apps, and privacy too. You do you.{'\n\n'}
+                Old Skool Apps{'\n'}
+                Where nostalgia meets function, and your privacy is actually yours.
               </Text>
             </View>
           </SettingSection>
@@ -424,7 +400,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 10,
   },
   headerSpacer: {
-    width: 44, // Same width as close button to center title
+    width: 44,
   },
   scrollView: {
     flex: 1,
