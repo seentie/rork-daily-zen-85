@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     alignItems: 'center',
-    paddingBottom: 100,
+    paddingBottom: 40,
   },
   closeButton: {
     position: 'absolute',
@@ -488,7 +488,7 @@ const styles = StyleSheet.create({
     height: width * 0.85,
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 40,
+    marginVertical: 20,
   },
   poolBackground: {
     position: 'absolute',
@@ -681,7 +681,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 12,
-    marginBottom: 30,
+    marginBottom: 20,
     paddingHorizontal: 20,
     justifyContent: 'center',
   },
@@ -712,7 +712,7 @@ const styles = StyleSheet.create({
   controls: {
     flexDirection: 'row',
     gap: 30,
-    marginBottom: 40,
+    marginBottom: 20,
   },
   controlButton: {
     width: 70,
@@ -738,7 +738,7 @@ const styles = StyleSheet.create({
   instructions: {
     flexDirection: 'row',
     gap: 20,
-    marginTop: 40,
+    marginTop: 10,
     marginBottom: 20,
   },
   instructionText: {
