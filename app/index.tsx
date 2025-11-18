@@ -264,8 +264,8 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 20,
-    paddingTop: 60,
-    paddingBottom: 40,
+    paddingTop: Platform.select({ ios: 20, android: 20, default: 20 }),
+    paddingBottom: 60,
   },
   gridPattern: {
     position: 'absolute',
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: Platform.select({ ios: 60, android: 60, default: 60 }),
     marginBottom: 30,
     gap: 15,
   },
@@ -476,6 +476,8 @@ const styles = StyleSheet.create({
     textShadowRadius: 20,
   },
   settingsButton: {
+    position: 'absolute',
+    right: 0,
     padding: 8,
     borderRadius: 12,
     backgroundColor: '#00ffff20',
