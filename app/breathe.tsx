@@ -72,6 +72,7 @@ export default function BreatheScreen() {
   const [timeRemaining, setTimeRemaining] = useState(180);
   const [isActive, setIsActive] = useState(false);
   const [breathPhase, setBreathPhase] = useState<'inhale' | 'hold' | 'exhale' | 'hold2'>('inhale');
+  const [showCloseButton, setShowCloseButton] = useState(false);
 
   console.log('[BreatheScreen] Render - Platform:', Platform.OS);
   
@@ -262,17 +263,24 @@ export default function BreatheScreen() {
     >
       <SafeAreaView style={styles.safeArea}>
         {/* Close Button */}
-        <TouchableOpacity
-          style={styles.closeButton}
-          onPress={() => router.back()}
-          testID="close-button"
-        >
-          <X size={28} color="#fff" />
-        </TouchableOpacity>
+        {showCloseButton && (
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => router.back()}
+            testID="close-button"
+          >
+            <X size={28} color="#fff" />
+          </TouchableOpacity>
+        )}
 
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
+          onTouchStart={() => {
+            if (!showCloseButton) {
+              setShowCloseButton(true);
+            }
+          }}
         >
           {/* Title */}
           <Text style={styles.title}>BREATHE</Text>
