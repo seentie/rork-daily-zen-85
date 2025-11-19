@@ -16,7 +16,7 @@ import * as Haptics from 'expo-haptics';
 
 const APP_VERSION = '1.0';
 const SUPPORT_EMAIL = 'sarah@oldskoolapps.com';
-const POLICY_UPDATED = 'November 2025';
+const POLICY_UPDATED = 'January 2025';
 const DEVELOPER_NAME = 'OLD SKOOL APPS';
 const DEVELOPER_WEBSITE = 'https://www.oldskoolapps.com';
 const DEVELOPER_ADDRESS = '2114 N Flamingo Road #867, Pembroke Pines, FL 33028';
