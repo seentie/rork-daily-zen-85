@@ -256,32 +256,40 @@ export default function BreatheScreen() {
     outputRange: ['0deg', '360deg'],
   });
 
-  return (
-    <LinearGradient
-      colors={['#1a0033', '#330066', '#4d0099']}
-      style={styles.container}
-    >
-      <SafeAreaView style={styles.safeArea}>
-        {/* Close Button */}
-        {showCloseButton && (
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={() => router.back()}
-            testID="close-button"
-          >
-            <X size={28} color="#fff" />
-          </TouchableOpacity>
-        )}
+  const handleScreenTap = () => {
+    setShowCloseButton(!showCloseButton);
+  };
 
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-          onTouchStart={() => {
-            if (!showCloseButton) {
-              setShowCloseButton(true);
-            }
-          }}
-        >
+  const handleCloseTap = () => {
+    router.back();
+  };
+
+  return (
+    <TouchableOpacity
+      style={styles.screenTouchable}
+      onPress={handleScreenTap}
+      activeOpacity={1}
+    >
+      <LinearGradient
+        colors={['#1a0033', '#330066', '#4d0099']}
+        style={styles.container}
+      >
+        <SafeAreaView style={styles.safeArea}>
+          {/* Close Button */}
+          {showCloseButton && (
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={handleCloseTap}
+              testID="close-button"
+            >
+              <X size={28} color="#fff" />
+            </TouchableOpacity>
+          )}
+
+          <ScrollView
+            contentContainerStyle={styles.scrollContent}
+            showsVerticalScrollIndicator={false}
+          >
           {/* Title */}
           <Text style={styles.title}>BREATHE</Text>
           <Text style={styles.subtitle}>{breathPhase === 'hold2' ? 'HOLD' : breathPhase.toUpperCase()}</Text>
@@ -448,13 +456,17 @@ export default function BreatheScreen() {
           <Text style={styles.instructionText}>EXHALE • 4s</Text>
           <Text style={styles.instructionText}>HOLD • 4s</Text>
         </View>
-        </ScrollView>
-      </SafeAreaView>
-    </LinearGradient>
+          </ScrollView>
+        </SafeAreaView>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
+  screenTouchable: {
+    flex: 1,
+  },
   container: {
     flex: 1,
   },
