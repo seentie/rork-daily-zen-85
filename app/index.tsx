@@ -112,7 +112,9 @@ export default function HomeScreen() {
           
           {/* Header */}
           <View style={styles.header}>
-            <Calendar size={24} color="#ff00ff" />
+            <View style={styles.headerSpacer}>
+              <Calendar size={24} color="#ff00ff" />
+            </View>
             <Text style={styles.headerText}>DAILY ZEN '85</Text>
             <TouchableOpacity
               style={styles.settingsButton}
@@ -283,7 +285,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     marginTop: Platform.select({ ios: 60, android: 60, default: 60 }),
     marginBottom: 30,
     gap: 15,
@@ -476,13 +478,14 @@ const styles = StyleSheet.create({
     textShadowRadius: 20,
   },
   settingsButton: {
-    position: 'absolute',
-    right: 0,
     padding: 8,
     borderRadius: 12,
     backgroundColor: '#00ffff20',
     borderWidth: 1,
     borderColor: '#00ffff40',
+  },
+  headerSpacer: {
+    width: 40,
   },
   customIntentionContainer: {
     marginTop: 10,
